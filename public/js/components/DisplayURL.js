@@ -19,8 +19,6 @@ class DisplayURL extends React.Component {
             const myURL = urlParser.parse(window.location.href);
             myURL.pathname = '/user/index.html';
             myURL.hash = myURL.hash.replace('session=default', 'session=user');
-            myURL.hash = myURL.hash.replace('session=standalone',
-                                            'session=user');
             delete myURL.search; // delete cacheKey
             this.state.userURL = urlParser.format(myURL);
         }

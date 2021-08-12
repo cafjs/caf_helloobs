@@ -5,25 +5,10 @@ const rB = require('react-bootstrap');
 const cE = React.createElement;
 const AppActions = require('../actions/AppActions');
 
-class Devices extends React.Component {
+class Scenes extends React.Component {
 
     constructor(props) {
         super(props);
-        this.doURL = this.doURL.bind(this);
-        this.doUser = this.doUser.bind(this);
-        this.doDisconnect = this.doDisconnect.bind(this);
-    }
-
-    doURL() {
-         AppActions.setLocalState(this.props.ctx, {displayURL: true});
-    }
-
-    doUser() {
-         AppActions.setLocalState(this.props.ctx, {displayUser: true});
-    }
-
-    doDisconnect() {
-        AppActions.disconnect(this.props.ctx);
     }
 
     render() {

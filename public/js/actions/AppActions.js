@@ -72,7 +72,7 @@ const AppActions = {
 };
 
 const EXTERNAL_METHODS = [
-    'setCurrentScene', 'getState'
+    'setCurrentScene', 'getState', 'setBrowserDaemon'
 ];
 
 EXTERNAL_METHODS.forEach(function(x) {

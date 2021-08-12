@@ -9,7 +9,7 @@ const DisplayError = require('./DisplayError');
 const DisplayURL = require('./DisplayURL');
 
 const Finder = require('./Finder');
-const Devices = require('./Devices');
+const Scenes = require('./Scenes');
 
 const cE = React.createElement;
 
@@ -84,16 +84,17 @@ class MyApp extends React.Component {
                              ),
                            cE(rB.Panel.Body, null,
                               cE(Finder, {
-                                  ctx: this.props.ctx
+                                  ctx: this.props.ctx,
+                                  daemon: this.state.daemon
                               })
                              )
                           ),
                         cE(rB.Panel, null,
                            cE(rB.Panel.Heading, null,
-                              cE(rB.Panel.Title, null, 'Manage')
+                              cE(rB.Panel.Title, null, title)
                              ),
                            cE(rB.Panel.Body, null,
-                              cE(Devices, {
+                              cE(Scenes, {
                                   ctx: this.props.ctx,
                                   currentScene: this.state.currentScene,
                                   scenes: this.state.scenes

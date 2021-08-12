@@ -2,7 +2,7 @@ const AppConstants = require('../constants/AppConstants');
 
 const AppReducer = function(state, action) {
     if (typeof state === 'undefined') {
-        return  {currentScene: '', scenes: [], isClosed: false,
+        return  {currentScene: '', scenes: [], isClosed: false, daemon: false,
                  displayUser: false, displayURL: false, error: null};
     } else {
         switch(action.type) {
