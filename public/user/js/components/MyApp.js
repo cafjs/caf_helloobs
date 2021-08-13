@@ -1,7 +1,7 @@
 const React = require('react');
 const rB = require('react-bootstrap');
 const cE = React.createElement;
-const Device = require('./Device');
+const Scenes = require('./Scenes');
 const AppStatus = require('./AppStatus');
 const DisplayError = require('./DisplayError');
 
@@ -52,7 +52,7 @@ class MyApp extends React.Component {
                                      sm: 5,
                                      xs:10,
                                      className: 'text-right'
-                                 }, 'helloobs'),
+                                 }, 'HelloOBS'),
                                  cE(rB.Col, {
                                      sm: 5,
                                      xs:11,
@@ -63,22 +63,16 @@ class MyApp extends React.Component {
                           )
                        ),
                      cE(rB.Panel.Body, null,
-                        this.state.selectedDevice ?
                         cE(rB.Panel, null,
                            cE(rB.Panel.Heading, null,
-                              cE(rB.Panel.Title, null, 'Remote Device')
+                              cE(rB.Panel.Title, null, 'Scenes')
                              ),
                            cE(rB.Panel.Body, null,
-                              cE(Device, {
+                              cE(Scenes, {
                                   ctx: this.props.ctx,
-                                  selectedDevice: this.state.selectedDevice,
-                                  sensorValue: this.state.sensorValue
+                                   currentScene: this.state.currentScene,
+                                  scenes: this.state.scenes
                               })
-                             )
-                          ) :
-                        cE(rB.Panel, null,
-                           cE(rB.Panel.Heading, null,
-                              cE(rB.Panel.Title, null, 'No Connected Devices')
                              )
                           )
                        )

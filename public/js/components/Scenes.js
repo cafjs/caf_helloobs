@@ -9,47 +9,37 @@ class Scenes extends React.Component {
 
     constructor(props) {
         super(props);
+        this.handleScene = this.handleScene.bind(this);
+    }
+
+    handleScene(e) {
+        const sortedScenes = this.props.scenes.sort();
+        const newScene = sortedScenes[e];
+        if (newScene) {
+            AppActions.setCurrentScene(this.props.ctx, newScene);
+        } else {
+            AppActions.setError(this.props.ctx,
+                                new Error(`Invalid index ${e}`));
+        }
     }
 
     render() {
-        return this.props.selectedDevice ?
-            cE(rB.Form, {horizontal: true},
-               cE(rB.FormGroup, {controlId: 'deviceId'},
-                  cE(rB.Col, {componentClass:rB.ControlLabel, sm: 3, xs: 8},
-                     'Device ID'),
-                  cE(rB.Col, {sm: 3, xs: 8},
-                     cE(rB.FormControl.Static, null,
-                        this.props.selectedDevice.id)
-                    ),
-                  cE(rB.Col, {componentClass:rB.ControlLabel, sm: 3, xs: 12},
-                     'Advertisement'),
-                  cE(rB.Col, {sm: 3, xs: 12},
-                     cE(rB.FormControl.Static,
-                        {style: {wordWrap: "break-word"}},
-                        JSON.stringify(this.props.selectedDevice.ad))
-                    )
-                 ),
-               cE(rB.FormGroup, {controlId: 'buttonsId'},
-                  cE(rB.Col, {smOffset: 3, sm: 6, xs: 12},
-                     cE(rB.ButtonGroup, null,
-                        cE(rB.Button, {
-                            bsStyle: 'primary',
-                            onClick: this.doURL
-                        }, 'URL'),
-                        cE(rB.Button, {
-                            bsStyle: 'info',
-                            onClick: this.doUser
-                        }, 'User View'),
-                        cE(rB.Button, {
-                            bsStyle: 'danger',
-                            onClick: this.doDisconnect
-                        }, 'Disconnect')
-                       )
-                    )
-                 )
-              ) :
-            cE('div', null, 'None');
+        const sortedScenes = this.props.scenes.sort();
+        const index = sortedScenes
+            .findIndex(x => (x === this.props.currentScene));
+
+        const buttons = sortedScenes.map((x, i) => cE(rB.ToggleButton,
+                                                      {value: i, keys: 2*i},
+                                                      x));
+
+        return cE(rB.ToggleButtonGroup, {
+            type: 'radio',
+            name: 'scenes',
+            value: index,
+            vertical: true,
+            onChange: this.handleScene
+        }, buttons);
     }
 }
 
-module.exports = Devices;
+module.exports = Scenes;

@@ -91,7 +91,7 @@ class MyApp extends React.Component {
                           ),
                         cE(rB.Panel, null,
                            cE(rB.Panel.Heading, null,
-                              cE(rB.Panel.Title, null, title)
+                              cE(rB.Panel.Title, null, 'Scenes')
                              ),
                            cE(rB.Panel.Body, null,
                               cE(Scenes, {
