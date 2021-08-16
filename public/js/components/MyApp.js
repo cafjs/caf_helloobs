@@ -85,7 +85,10 @@ class MyApp extends React.Component {
                            cE(rB.Panel.Body, null,
                               cE(Finder, {
                                   ctx: this.props.ctx,
-                                  daemon: this.state.daemon
+                                  daemon: this.state.daemon,
+                                  password: this.state.password,
+                                  address: this.state.address,
+                                  connected: this.state.connected
                               })
                              )
                           ),

@@ -3,7 +3,8 @@ const AppConstants = require('../constants/AppConstants');
 const AppReducer = function(state, action) {
     if (typeof state === 'undefined') {
         return  {currentScene: '', scenes: [], isClosed: false, daemon: false,
-                 displayUser: false, displayURL: false, error: null};
+                 displayUser: false, displayURL: false, error: null,
+                 address: 'localhost:4444', password: 'obs', connected: false};
     } else {
         switch(action.type) {
         case AppConstants.APP_UPDATE:

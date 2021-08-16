@@ -72,7 +72,8 @@ const AppActions = {
 };
 
 const EXTERNAL_METHODS = [
-    'setCurrentScene', 'getState', 'setBrowserDaemon'
+    'setCurrentScene', 'getState', 'setBrowserDaemon', 'connect', 'disconnect',
+    'setAddress', 'setPassword'
 ];
 
 EXTERNAL_METHODS.forEach(function(x) {

@@ -29,14 +29,14 @@ class Scenes extends React.Component {
             .findIndex(x => (x === this.props.currentScene));
 
         const buttons = sortedScenes.map((x, i) => cE(rB.ToggleButton,
-                                                      {value: i, keys: 2*i},
+                                                      {value: i, key: 2997*i},
                                                       x));
 
         return cE(rB.ToggleButtonGroup, {
             type: 'radio',
             name: 'scenes',
             value: index,
-            vertical: true,
+            vertical: false,
             onChange: this.handleScene
         }, buttons);
     }
