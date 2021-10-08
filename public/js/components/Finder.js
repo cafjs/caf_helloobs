@@ -132,7 +132,8 @@ class Finder extends React.Component {
                          sandbox: 'allow-same-origin allow-popups ' +
                              'allow-scripts allow-forms allow-pointer-lock',
                          frameBorder: 0,
-                         style: {maxHeight: '0px'},
+                         // If size is 0px, Chrome throttles timers
+                         style: {maxHeight: '10px'},
                          src: getURL()
                      }, null)) :
                   cE('div', null)
